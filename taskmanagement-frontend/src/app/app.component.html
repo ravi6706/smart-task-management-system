@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Task Management</a>
+    </div>
+    <ul class="nav navbar-nav" routerLinkActive="active">
+
+      <li *ngIf="authority === 'user'">
+        <div class="nav-item">
+          <a class="nav-link" routerLink="user">User Board</a>
+      <a class="nav-link" routerLink="home">Logout</a>
+          </div>
+      </li>
+
+
+      <li *ngIf="authority === 'admin'" class="nav-item">
+
+        <a class="nav-link" routerLink="admin">Admin Board</a>
+        <a class="nav-link" routerLink="home">Logout</a>
+
+      </li>
+      <li *ngIf="authority === 'pm'" class="nav-item">
+
+        <a class="nav-link" routerLink="pm">Manager Board</a>
+      <a class="nav-link" routerLink="home">Logout</a>
+
+      </li>
+     <!-- <li *ngIf="!authority" class="nav-item">
+        <a class="nav-link" routerLink="auth/login">Login</a>
+      </li>-->
+
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="footer navbar-expand-sm bg-dark text-center">
+  <div class="container">
+    <small class="text-white"> &copy; Copyright {{2020}},Task Management System</small>
+    <p class="text-white">Made with &hearts; in India</p>
+  </div>
+</footer>

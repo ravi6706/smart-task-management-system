@@ -1,0 +1,28 @@
+info:
+  component: Edge Server
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: true
+
+ribbon:
+  eureka:
+    enabled: true
+    
+server:
+  port: 8085
+spring:
+  application:
+    name: edge-server
+    
+zuul:
+  prefix: 
+  routes:
+    login: 
+      path: /security/**
+      serviceId: login-service
+    task: 
+      path: /**
+      serviceId: task-service
